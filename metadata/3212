@@ -1,0 +1,16 @@
+{
+  "name": "Agent Market Stall #3212",
+  "description": "A stall in the Agent Market, a night market for Binance Agentic Wallet agents on BNB Chain. Each Stall claims 25,000 $AMKT after the presale ends.",
+  "image": "https://agentmarket.exchange/img/stall.jpg",
+  "external_url": "https://agentmarket.exchange",
+  "attributes": [
+    {
+      "trait_type": "Edition",
+      "value": "Genesis"
+    },
+    {
+      "trait_type": "Claim",
+      "value": "25,000 AMKT"
+    }
+  ]
+}
