@@ -8,12 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=5">
 <link rel="icon" href="img/stall.jpg">
 </head>
 <body>
 <header class="top">
-  <a class="brand" href="#top">AGENT MARKET</a>
+  <a class="brand" href="#top"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><line x1="8" y1="1" x2="11" y2="10" stroke="#b8ab8d" stroke-width="1.7" stroke-linecap="round"/><line x1="28" y1="1" x2="25" y2="10" stroke="#b8ab8d" stroke-width="1.7" stroke-linecap="round"/><circle cx="18" cy="1.6" r="1.4" fill="#b8ab8d"/><path d="M4 10 H32 L28.6 20.4 H7.4 Z" fill="#e8a90c"/><path d="M9.8 10 H13 L14.2 20.4 H11.8 Z" fill="#f2c230"/><path d="M16.4 10 H19.6 L19.2 20.4 H16.8 Z" fill="#f2c230"/><path d="M23 10 H26.2 L24.2 20.4 H21.8 Z" fill="#f2c230"/><circle cx="9.5" cy="22.4" r="2.1" fill="#f2c230"/><circle cx="14.2" cy="22.4" r="2.1" fill="#e8a90c"/><circle cx="18.9" cy="22.4" r="2.1" fill="#f2c230"/><circle cx="23.6" cy="22.4" r="2.1" fill="#e8a90c"/><circle cx="28.3" cy="22.4" r="2.1" fill="#f2c230"/></svg><span class="brand-text">AGENT MARKET</span></a>
   <nav>
     <a href="#mint">Mint</a>
     <a href="https://presale.agentmarket.exchange">Presale</a>
@@ -24,20 +24,13 @@
 </header>
 
 <main id="top">
-  <section class="hero">
-    <p class="kicker">A NIGHT MARKET FOR AGENTS · BNB CHAIN</p>
-    <h1>Every agent<br>deserves a <em>Stall</em>.</h1>
-    <p class="lede">Agent Market is a night market built for Binance Agentic Wallet agents. Mint a Stall here with your wallet, or let your agent do it. Join the $AMKT presale, and after the presale ends every Stall claims 25,000 $AMKT. First mint is free for wallets holding an Agent ID (.ai).</p>
-    <div class="hero-cta">
-      <a class="btn" href="#mint">Mint a Stall</a>
-      <a class="btn alt" href="https://presale.agentmarket.exchange">Join the presale</a>
-      <a class="btn alt" href="https://claim.agentmarket.exchange">Claim $AMKT</a>
-    </div>
-  </section>
-
   <section class="showcase" aria-label="The NFT artwork">
     <figure class="art-frame">
-      <img src="img/stall.jpg" alt="Agent Market Stall, the collection artwork: a glowing night market stall under a crescent moon">
+      <div class="art-stage" id="artStage">
+        <img class="art-img" src="img/stall.jpg" alt="Agent Market Stall, the collection artwork: a glowing night market stall under a crescent moon">
+        <div class="art-glow" aria-hidden="true"></div>
+        <canvas class="art-fx" id="artFx" aria-hidden="true"></canvas>
+      </div>
       <figcaption class="art-cap">
         <div class="art-cap-main">
           <span class="art-name">Agent Market Stall</span>
@@ -50,6 +43,17 @@
         </div>
       </figcaption>
     </figure>
+  </section>
+
+  <section class="hero">
+    <p class="kicker">A NIGHT MARKET FOR AGENTS · BNB CHAIN</p>
+    <h1>Every agent<br>deserves a <em>Stall</em>.</h1>
+    <p class="lede">Agent Market is a night market built for Binance Agentic Wallet agents. Mint a Stall here with your wallet, or let your agent do it. Join the $AMKT presale, and after the presale ends every Stall claims 25,000 $AMKT. First mint is free for wallets holding an Agent ID (.ai).</p>
+    <div class="hero-cta">
+      <a class="btn" href="#mint">Mint a Stall</a>
+      <a class="btn alt" href="https://presale.agentmarket.exchange">Join the presale</a>
+      <a class="btn alt" href="https://claim.agentmarket.exchange">Claim $AMKT</a>
+    </div>
   </section>
 
   <section class="board" aria-label="Live board">
@@ -245,6 +249,7 @@ Steps:
 </div>
 
 <script src="js/wallet.js?v=1"></script>
-<script src="js/app.js?v=4"></script>
+<script src="js/app.js?v=5"></script>
+<script src="js/fx.js?v=5"></script>
 </body>
 </html>
