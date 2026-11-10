@@ -19,6 +19,31 @@ const SEL = {
 const $ = (id) => document.getElementById(id);
 const set = (id, txt) => { const el = $(id); if (el) el.textContent = txt; };
 
+// Animated stat numbers: counts from the last shown value to the new one
+// whenever the live board refreshes, and from zero on first appearance.
+// The final frame always writes finalText, the exact string the plain
+// setter would have produced. Reduced motion writes the value directly.
+const REDUCED = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+const numAnim = {};
+function setNum(id, target, finalText) {
+  const el = $(id);
+  if (!el) return;
+  const st = numAnim[id] || (numAnim[id] = { val: 0, raf: 0 });
+  if (st.raf) cancelAnimationFrame(st.raf);
+  const from = st.val;
+  st.val = target;
+  if (REDUCED || from === target) { el.textContent = finalText; st.raf = 0; return; }
+  const t0 = performance.now(), dur = 700;
+  const stepFn = (t) => {
+    const k = Math.min(1, (t - t0) / dur);
+    const e = 1 - Math.pow(1 - k, 3);
+    el.textContent = fmt(Math.round(from + (target - from) * e));
+    if (k < 1) st.raf = requestAnimationFrame(stepFn);
+    else { el.textContent = finalText; st.raf = 0; }
+  };
+  st.raf = requestAnimationFrame(stepFn);
+}
+
 function priceFor(n, hasId) {
   if (n === 1 && hasId) return 0n;
   if (n <= 10) return T1;
@@ -54,10 +79,10 @@ async function refreshBoard() {
     ]);
     n.minted = Number(supply);
     n.mintOpen = open;
-    set("st-minted", fmt(n.minted));
-    set("st-left", fmt(SUPPLY - n.minted));
+    setNum("st-minted", n.minted, fmt(n.minted));
+    setNum("st-left", SUPPLY - n.minted, fmt(SUPPLY - n.minted));
     set("st-mint-status", open ? "OPEN" : "NOT OPEN YET");
-    set("st-sold", fmt(sold / 10n ** 18n));
+    setNum("st-sold", Number(sold / 10n ** 18n), fmt(sold / 10n ** 18n));
     const pf = $("pgFill");
     if (pf) pf.style.width = Math.min(100, (n.minted / SUPPLY) * 100).toFixed(2) + "%";
     if (start === 0n) {
