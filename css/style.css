@@ -303,9 +303,6 @@ b, strong { font-weight: 700; }
 .ladder { margin-top: clamp(90px, 12vw, 150px); }
 .steps-l { list-style: none; display: grid; gap: 10px; }
 .steps-l li { display: grid; grid-template-columns: 90px 1fr auto; align-items: center; gap: 18px; padding: 18px 22px; background: var(--cream); border: 1px solid var(--line); border-radius: 20px; }
-.steps-l li:nth-child(2) { margin-left: clamp(0px, 3vw, 40px); }
-.steps-l li:nth-child(3) { margin-left: clamp(0px, 6vw, 80px); }
-.steps-l li:nth-child(4) { margin-left: clamp(0px, 9vw, 120px); }
 .st-n { font-family: var(--display); font-weight: 800; font-size: 28px; letter-spacing: -.03em; color: var(--orange-2); }
 .steps-l b { font-weight: 700; }
 .steps-l small { display: block; color: var(--mute); font-size: 13px; }
@@ -421,6 +418,7 @@ b, strong { font-weight: 700; }
 .bowl-cap i { font-style: normal; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
 .bowl-cap b { font-family: var(--display); font-weight: 800; font-size: 24px; letter-spacing: -.02em; }
 .bowl-cap small { color: var(--mute); font-size: 12px; }
+.bowl-cap b small { font-family: var(--text); font-weight: 700; font-size: 12.5px; letter-spacing: .06em; }
 .pay-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 5px; background: var(--paper-2); border-radius: 16px; }
 .pay-tabs button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 46px; border-radius: 12px; font-weight: 700; font-size: 16px; color: var(--ink-2); transition: background .25s, color .25s, box-shadow .25s; }
 .pay-tabs button[aria-selected="true"] { background: var(--cream); color: var(--ink); box-shadow: 0 6px 16px -8px rgba(80, 40, 15, .4); }
@@ -583,9 +581,10 @@ b, strong { font-weight: 700; }
 }
 @media (max-width: 640px) {
   .perk-grid { grid-template-columns: 1fr; }
-  .steps-l li { grid-template-columns: 1fr auto; gap: 4px 12px; padding: 16px 18px; margin-left: 0 !important; }
-  .st-n { grid-column: 1 / -1; font-size: 22px; }
-  .st-p { font-size: 14px; }
+  .steps-l li { grid-template-columns: auto 1fr; grid-template-areas: "n p" "d d"; gap: 6px 12px; padding: 16px 18px; align-items: center; }
+  .st-n { grid-area: n; font-size: 24px; }
+  .steps-l li > div { grid-area: d; }
+  .st-p { grid-area: p; justify-self: end; font-size: 14px; }
   .go-row { grid-template-columns: 1fr 1fr; }
   .go-btn { font-size: 16px; }
   .agent-btn { padding: 0 10px; font-size: 14.5px; gap: 6px; }
@@ -596,7 +595,8 @@ b, strong { font-weight: 700; }
   .cd span { min-width: 0; flex: 1; padding: 12px 6px 8px; }
   .bowl-cap { flex-wrap: wrap; }
   .bowl-cap div { min-width: 0; flex: 1 1 40%; padding: 12px 14px; }
-  .bowl-cap b { font-size: 19px; }
+  .bowl-cap b { font-size: 16px; white-space: nowrap; }
+  .bowl-cap div { padding: 12px 10px; }
   .f-row input, .f-row output { font-size: 30px; }
   .total strong { font-size: 26px; }
   .sp-foot { font-size: 13px; }
@@ -744,15 +744,21 @@ b, strong { font-weight: 700; }
 @media (max-width: 720px) { .facts-band.three > div:nth-child(3) { grid-column: 1 / -1; } }
 
 /* pool venues band (homepage swap section) */
-.pool-band { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
-.pool-card { display: flex; align-items: center; gap: 16px; padding: 20px 22px; border-radius: 26px; background: var(--cream); border: 1px solid var(--line); }
+.pool-band { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; margin-top: 14px; }
+.pool-card { display: flex; align-items: center; gap: 16px; padding: 20px 22px; border-radius: 26px; background: var(--cream); border: 1px solid var(--line); min-width: 0; }
 .pool-logo { width: 54px; height: 54px; border-radius: 50%; flex: none; display: inline-block; }
 .pool-txt { flex: 1; min-width: 0; }
 .pool-txt h3 { font-family: "Funnel Display", sans-serif; font-size: 21px; font-weight: 700; color: var(--ink); }
 .pool-txt p { font-size: 14px; line-height: 1.45; color: var(--ink-2); margin-top: 3px; }
 .pool-state { flex: none; font-family: "Funnel Sans", sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--orange-3); border: 1.5px dashed var(--orange-2); border-radius: 999px; padding: 7px 12px; white-space: nowrap; }
 @media (max-width: 720px) {
-  .pool-band { grid-template-columns: 1fr; }
-  .pool-card { padding: 16px 18px; }
-  .pool-logo { width: 46px; height: 46px; }
+  .pool-band { grid-template-columns: minmax(0, 1fr); }
+  .pool-card { padding: 16px 18px; align-items: flex-start; }
+  .pool-logo { width: 46px; height: 46px; margin-top: 3px; }
+  .pool-state { margin-top: 5px; }
+}
+
+@media (max-width: 640px) {
+  .cl-head { flex-wrap: wrap; row-gap: 4px; }
+  .cl-head small { margin-left: 0; width: 100%; text-align: left; }
 }
