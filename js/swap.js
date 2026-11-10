@@ -9,9 +9,9 @@
   const WBNB = "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c";
   const ZERO = "0x0000000000000000000000000000000000000000";
   const TOKENS = {
-    BNB: { sym: "BNB", name: "BNB Chain", addr: null, ic: "B", cls: "t-bnb" },
-    USDT: { sym: "USDT", name: "Tether USD", addr: "0x55d398326f99059fF775485246999027B3197955", ic: "₮", cls: "t-usdt" },
-    AMKT: { sym: "AMKT", name: "Agent Market", addr: "0x31BBB7A5614D0eD465a93d1BAFCE28CE0225cDDe", ic: "A", cls: "t-amkt" },
+    BNB: { sym: "BNB", name: "BNB Chain", addr: null, img: "img/bnb.png" },
+    USDT: { sym: "USDT", name: "Tether USD", addr: "0x55d398326f99059fF775485246999027B3197955", img: "img/usdt.png" },
+    AMKT: { sym: "AMKT", name: "Agent Market", addr: "0x31BBB7A5614D0eD465a93d1BAFCE28CE0225cDDe", img: "img/amkt.png" },
   };
   const SEL = {
     balanceOf: "0x70a08231", allowance: "0xdd62ed3e", approve: "0x095ea7b3",
@@ -143,7 +143,7 @@
   // ---- Rendering --------------------------------------------------------------
   function coinHTML(sym) {
     const t = TOKENS[sym];
-    return `<span class="tok-ic ${t.cls}">${t.ic}</span>${t.sym}<span class="car">▾</span>`;
+    return `<img class="tok-ic-img" src="${t.img}" alt="">${t.sym}<span class="car">▾</span>`;
   }
   function menuHTML(menu, current) {
     menu.innerHTML = Object.keys(TOKENS).map((sym) => {
@@ -151,7 +151,7 @@
       const pool = sym === "AMKT"
         ? `<span class="tok-pool${s.pool ? " live" : ""}">${s.pool ? "Pool live" : "Pool soon"}</span>`
         : "";
-      return `<button type="button" class="tok-opt" data-sym="${sym}" aria-selected="${sym === current}"><span class="tok-ic ${t.cls}">${t.ic}</span><span class="tok-nm">${t.sym}<small>${t.name}</small></span>${pool}</button>`;
+      return `<button type="button" class="tok-opt" data-sym="${sym}" aria-selected="${sym === current}"><img class="tok-ic-img" src="${t.img}" alt=""><span class="tok-nm">${t.sym}<small>${t.name}</small></span>${pool}</button>`;
     }).join("");
     menu.querySelectorAll(".tok-opt").forEach((b) =>
       b.addEventListener("click", () => { pickToken(menu === $("swMenuIn") ? "in" : "out", b.dataset.sym); closeMenus(); })
