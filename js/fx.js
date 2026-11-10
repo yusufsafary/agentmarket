@@ -65,7 +65,7 @@
     canvas.width = Math.round(W * dpr);
     canvas.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var count = Math.max(20, Math.min(44, Math.floor(W / 16)));
+    var count = Math.max(26, Math.min(56, Math.floor(W / 12)));
     parts = [];
     for (var i = 0; i < count; i++) parts.push(spawn(true));
   }

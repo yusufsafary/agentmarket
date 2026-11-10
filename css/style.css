@@ -314,9 +314,11 @@ b, strong { font-weight: 700; }
 
 /* Specimen (NFT artwork, first on the mint page) */
 .mt-hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
-.mt-art { position: sticky; top: 110px; perspective: 1200px; }
+.mt-art { position: sticky; top: 110px; perspective: 1200px; animation: artFloat 7s ease-in-out infinite; }
+@keyframes artFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 .specimen { position: relative; background: #1d130d; border-radius: 30px; padding: 14px 14px 0; box-shadow: 0 50px 90px -40px rgba(60, 25, 8, .7), 0 0 0 1px rgba(255, 255, 255, .04) inset; transition: transform .5s var(--ease); }
-.sp-pin { position: absolute; top: -9px; left: 50%; width: 46px; height: 18px; margin-left: -23px; border-radius: 0 0 10px 10px; background: var(--orange); box-shadow: 0 2px 0 var(--orange-3); z-index: 3; }
+.sp-pin { position: absolute; top: -9px; left: 50%; width: 46px; height: 18px; margin-left: -23px; border-radius: 0 0 10px 10px; background: var(--orange); box-shadow: 0 2px 0 var(--orange-3); z-index: 3; transform-origin: 50% 0; animation: pinSway 5.5s ease-in-out infinite; }
+@keyframes pinSway { 0%, 100% { transform: rotate(2.4deg); } 50% { transform: rotate(-2.4deg); } }
 .sp-frame { border-radius: 20px; overflow: hidden; aspect-ratio: 1; }
 .sp-foot { display: grid; grid-template-columns: repeat(3, auto); justify-content: space-between; gap: 10px; padding: 16px 8px 18px; color: var(--paper); font-size: 14px; font-weight: 600; }
 .sp-foot span { display: grid; gap: 2px; }
@@ -326,11 +328,23 @@ b, strong { font-weight: 700; }
 
 /* Animated NFT stage: Ken Burns zoom, lantern glow, firefly canvas, tilt */
 .art-stage { position: relative; overflow: hidden; width: 100%; height: 100%; background: #1d130d; }
-.art-stage img.art-img { display: block; width: 100%; height: 100%; object-fit: cover; animation: artZoom 18s ease-in-out infinite alternate; will-change: transform; }
-@keyframes artZoom { from { transform: scale(1) translate(0, 0); } to { transform: scale(1.08) translate(-1.2%, -1.2%); } }
+.art-stage img.art-img { display: block; width: 100%; height: 100%; object-fit: cover; animation: artZoom 16s ease-in-out infinite alternate; will-change: transform; }
+@keyframes artZoom { from { transform: scale(1) translate(0, 0); } to { transform: scale(1.1) translate(-1.6%, -1.6%); } }
 .art-glow { position: absolute; inset: -18%; pointer-events: none; mix-blend-mode: screen; background: radial-gradient(circle at 50% 60%, rgba(244, 166, 110, .34), rgba(229, 138, 78, .13) 42%, rgba(229, 138, 78, 0) 68%); animation: artGlow 6s ease-in-out infinite alternate; }
 @keyframes artGlow { from { opacity: .55; transform: scale(.97); } to { opacity: 1; transform: scale(1.04); } }
+.art-moon { position: absolute; left: 50%; top: 2%; width: 36%; aspect-ratio: 1; transform: translateX(-50%); pointer-events: none; mix-blend-mode: screen; background: radial-gradient(circle, rgba(255, 240, 205, .5), rgba(244, 166, 110, .16) 45%, rgba(244, 166, 110, 0) 70%); animation: moonPulse 7s ease-in-out infinite alternate; }
+@keyframes moonPulse { from { opacity: .45; transform: translateX(-50%) scale(.95); } to { opacity: .95; transform: translateX(-50%) scale(1.06); } }
+.art-lanterns { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen; }
+.art-lanterns i { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(255, 226, 170, .85), rgba(244, 166, 110, .32) 46%, rgba(244, 166, 110, 0) 70%); }
+.art-lanterns .l1 { left: 4%; top: 42%; width: 17%; aspect-ratio: 1; animation: flickA 2.3s ease-in-out infinite; }
+.art-lanterns .l2 { left: 13%; top: 52%; width: 15%; aspect-ratio: 1; animation: flickB 2.9s ease-in-out infinite; }
+.art-lanterns .l3 { left: 60%; top: 48%; width: 15%; aspect-ratio: 1; animation: flickA 3.7s ease-in-out infinite reverse; }
+.art-lanterns .l4 { left: 74%; top: 50%; width: 16%; aspect-ratio: 1; animation: flickB 2.6s ease-in-out infinite reverse; }
+@keyframes flickA { 0%, 100% { opacity: .5; } 18% { opacity: .95; } 33% { opacity: .62; } 52% { opacity: 1; } 71% { opacity: .7; } 86% { opacity: .9; } }
+@keyframes flickB { 0%, 100% { opacity: .85; } 22% { opacity: .55; } 41% { opacity: .95; } 63% { opacity: .6; } 82% { opacity: 1; } }
 .art-fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.art-sheen { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, transparent 32%, rgba(255, 228, 180, .17) 48%, rgba(255, 228, 180, .05) 54%, transparent 70%); transform: translateX(-130%) skewX(-8deg); animation: sheenSweep 7.5s ease-in-out infinite; }
+@keyframes sheenSweep { 0% { transform: translateX(-130%) skewX(-8deg); } 30%, 100% { transform: translateX(130%) skewX(-8deg); } }
 
 /* Agent ID section */
 .agent { margin-top: clamp(80px, 10vw, 130px); }
@@ -639,7 +653,7 @@ b, strong { font-weight: 700; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .brand-mark, .brand-wordwrap::after, .art-stage img.art-img, .art-glow, .aid-card, .go-btn:not(:disabled):after, .live-dot { animation: none; }
+  .brand-mark, .brand-wordwrap::after, .art-stage img.art-img, .art-glow, .art-moon, .art-lanterns i, .art-sheen, .sp-pin, .mt-art, .aid-card, .go-btn:not(:disabled):after, .live-dot { animation: none; }
 }
 
 
