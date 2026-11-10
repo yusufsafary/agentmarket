@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=10">
+<link rel="stylesheet" href="css/style.css?v=12">
 <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 </head>
 <body>
@@ -35,12 +35,12 @@
 
     <h2>The Stall</h2>
     <p>The Stall is an NFT on BNB Chain with a fixed edition of <strong>12,000</strong>. Every Stall carries the same collection artwork, a night market stall under a crescent moon, and public metadata served from this domain. A Stall is a normal transferable token: it can be held, sold, or moved between wallets like any other NFT on the chain.</p>
-    <p>Beyond the artwork, a Stall is a key. Each Stall a wallet holds when the presale ends carries a claim of <strong>25,000 $AMKT</strong>, and Stall holders get access to the Agent Market launchpad when it opens.</p>
+    <p>Beyond the artwork, a Stall is a key. Each Stall a wallet holds carries a claim of <strong>25,000 $AMKT</strong>, and the holder claim is open now. Stall holders also get access to the Agent Market launchpad when it opens.</p>
 
     <h2>How the market works</h2>
     <p><strong>Mint.</strong> Minting happens on the main page, in the browser or through an agent prompt. Wallets holding an Agent ID mint their first Stall for 0 BNB. Every other first mint costs 0.0003 BNB. Stalls 2 to 10 cost 0.0003 BNB each, stalls 11 to 20 cost 0.0005 BNB each, and stalls 21 to 25 cost 0.0007 BNB each. The limit is 25 Stalls per wallet. The tiers are set in the Stall contract, so every interface reads the same prices.</p>
     <p><strong>Presale.</strong> The $AMKT presale runs on its own page for exactly 14 days once started. The rate is fixed at 20,000,000 $AMKT for every 1 BNB, and the presale sells at most 1,000,000,000 $AMKT in total. Buyers can pay with BNB, or with USDT converted at the live BNB price. Purchases are recorded by the presale contract, and the tokens are claimed after the presale ends.</p>
-    <p><strong>Claim.</strong> When the presale ends, two claims open on the claim page. Presale buyers claim the $AMKT they bought, and Stall holders claim 25,000 $AMKT for every Stall their wallet holds. Each claim can be made once per wallet and carries no claim fee.</p>
+    <p><strong>Claim.</strong> The holder claim is open now: Stall holders claim 25,000 $AMKT for every Stall their wallet holds, once per wallet, for a claim fee of 0.000241 BNB, through the AgentMarketClaim contract on the claim page. Presale buyers claim the $AMKT they bought when the presale ends.</p>
     <p><strong>Swap.</strong> The main page carries a swap console routed through PancakeSwap V2. BNB and USDT trade there today. The console reads the chain for an $AMKT pool and enables $AMKT trading as soon as a pool exists.</p>
 
     <h2>Market facts</h2>
@@ -58,10 +58,11 @@
     </div>
 
     <h2>Contracts</h2>
-    <p>Every part of the market runs through three public contracts. All three are verified on BscScan, and the same addresses appear in the footer of every page of this market.</p>
+    <p>Every part of the market runs through four public contracts. The same addresses appear in the footer of every page of this market.</p>
     <p><strong>$AMKT (token)</strong><a class="addr" href="https://bscscan.com/address/0x31BBB7A5614D0eD465a93d1BAFCE28CE0225cDDe">0x31BBB7A5614D0eD465a93d1BAFCE28CE0225cDDe</a></p>
     <p><strong>Stall (NFT)</strong><a class="addr" href="https://bscscan.com/address/0xE3dE7fD0d12cFF4a46d8Bf702Ab593B6f921b308">0xE3dE7fD0d12cFF4a46d8Bf702Ab593B6f921b308</a></p>
     <p><strong>Presale and claim</strong><a class="addr" href="https://bscscan.com/address/0xA6Ef01e926eFbD35661e7B1d3E1CBeE360750b16">0xA6Ef01e926eFbD35661e7B1d3E1CBeE360750b16</a></p>
+    <p><strong>Claim</strong><a class="addr" href="https://bscscan.com/address/0xf40c9345D8EccA7B437c45e5DabADb0Ed8cdd209">0xf40c9345D8EccA7B437c45e5DabADb0Ed8cdd209</a></p>
     <p>New here? Read the <a href="terms.html">Terms of Use</a> and the <a href="disclaimer.html">Disclaimer</a> before you mint or buy.</p>
   </div>
 </main>
@@ -91,6 +92,7 @@
       <a class="fc" href="https://bscscan.com/address/0x31BBB7A5614D0eD465a93d1BAFCE28CE0225cDDe"><b>$AMKT (token)</b><span>0x31BBB7A5614D0eD465a93d1BAFCE28CE0225cDDe</span></a>
       <a class="fc" href="https://bscscan.com/address/0xE3dE7fD0d12cFF4a46d8Bf702Ab593B6f921b308"><b>Stall (NFT)</b><span>0xE3dE7fD0d12cFF4a46d8Bf702Ab593B6f921b308</span></a>
       <a class="fc" href="https://bscscan.com/address/0xA6Ef01e926eFbD35661e7B1d3E1CBeE360750b16"><b>Presale and claim</b><span>0xA6Ef01e926eFbD35661e7B1d3E1CBeE360750b16</span></a>
+      <a class="fc" href="https://bscscan.com/address/0xf40c9345D8EccA7B437c45e5DabADb0Ed8cdd209"><b>Claim</b><span>0xf40c9345D8EccA7B437c45e5DabADb0Ed8cdd209</span></a>
     </div>
   </div>
   <div class="foot-base"><span>© 2026 Agent Market · Built for Binance Agentic Wallet agents</span><span>BNB Chain · Chain ID 56</span></div>
