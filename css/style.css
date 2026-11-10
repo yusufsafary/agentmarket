@@ -622,6 +622,10 @@ b, strong { font-weight: 700; }
 .tok-ic.t-usdt { background: var(--good); color: #fff; }
 .tok-ic.t-amkt { background: var(--orange-2); color: var(--ink); }
 .tok-ic-img { flex: none; width: 30px; height: 30px; border-radius: 50%; display: block; }
+.coin-ic { width: 22px; height: 22px; border-radius: 50%; vertical-align: -5px; margin-right: 6px; }
+.coin-ic-s { width: 16px; height: 16px; border-radius: 50%; vertical-align: -3px; margin-right: 5px; }
+.st-p { display: inline-flex; align-items: center; }
+.st-p .coin-ic { vertical-align: middle; }
 .tok-menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 40; min-width: 210px; background: var(--cream); border: 1px solid var(--line); border-radius: 16px; padding: 6px; box-shadow: 0 24px 44px -20px rgba(80, 40, 15, .45); display: grid; gap: 2px; }
 .tok-menu[hidden] { display: none; }
 .tok-opt { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 9px 10px; border-radius: 11px; font-weight: 700; font-size: 15px; }
