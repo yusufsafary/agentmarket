@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whitepaper · Agent Market</title>
+<meta name="description" content="The Agent Market whitepaper: Stall NFT mechanics, the $AMKT allocation, presale rules, holder claims, money flow, and the four contracts behind the market.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Agent Market">
+<meta property="og:title" content="Whitepaper · Agent Market">
+<meta property="og:description" content="The Agent Market whitepaper: Stall NFT mechanics, the $AMKT allocation, presale rules, holder claims, money flow, and the four contracts behind the market.">
+<meta property="og:url" content="https://agentmarket.exchange/whitepaper.html">
+<meta property="og:image" content="https://agentmarket.exchange/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Whitepaper · Agent Market">
+<meta name="twitter:description" content="The Agent Market whitepaper: Stall NFT mechanics, the $AMKT allocation, presale rules, holder claims, money flow, and the four contracts behind the market.">
+<meta name="twitter:image" content="https://agentmarket.exchange/img/og.jpg">
+<meta name="theme-color" content="#fbf3e8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=16">
+<link rel="icon" type="image/svg+xml" href="img/logo.svg">
+</head>
+<body>
+<header class="collar">
+  <span class="stitch" aria-hidden="true"></span>
+  <a class="brand" href="https://agentmarket.exchange"><svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M39.5 2.2 C40.1 4.9 41.6 6.4 44.3 7.5 C41.6 8.6 40.1 10.1 39.5 12.8 C38.9 10.1 37.4 8.6 34.7 7.5 C37.4 6.4 38.9 4.9 39.5 2.2 Z" fill="#f4a66e"/><path fill="#fbf3e8" d="M24 6 L45.5 44 L36.4 44 L24 19.4 L11.6 44 L2.5 44 Z"/><path fill="#e58a4e" d="M4.5 24.5 L43.5 24.5 L43.5 29 q-3.25 4.6 -6.5 0 q-3.25 4.6 -6.5 0 q-3.25 4.6 -6.5 0 q-3.25 4.6 -6.5 0 q-3.25 4.6 -6.5 0 q-3.25 4.6 -6.5 0 Z"/></svg><span class="brand-wordwrap"><svg class="brand-word" viewBox="-16 -852 10128 896" role="img" aria-label="Agent Market"><g transform="translate(0.0 0) scale(1 -1)"><path d="M6 0 347 810H537L874 0H681L604 184H271L193 0ZM330 340H554L445 608H440Z" fill="#fbf3e8"/><path d="M78 372 L804 372 L804 184 Q731.4 60 658.8 184 Q586.2 60 513.6 184 Q441.0 60 368.4 184 Q295.8 60 223.2 184 Q150.6 60 78.0 184 L78 372 Z" fill="#e58a4e"/></g><g transform="translate(914.0 0) scale(1 -1)"><path d="M443 -12Q325 -12 235.0 40.5Q145 93 94.5 187.0Q44 281 44 404Q44 530 96.0 624.0Q148 718 242.5 770.0Q337 822 462 822Q565 822 644.0 786.5Q723 751 773.0 685.0Q823 619 836 527H640Q630 588 583.0 622.0Q536 656 462 656Q392 656 340.0 625.0Q288 594 260.0 537.0Q232 480 232 402Q232 323 261.0 265.0Q290 207 343.0 175.5Q396 144 468 144Q521 144 562.5 160.5Q604 177 628.0 205.5Q652 234 652 270V294H453V438H704Q770 438 803.0 406.5Q836 375 836 312V0H664V86H659Q630 37 576.0 12.5Q522 -12 443 -12Z" fill="#fbf3e8"/></g><g transform="translate(1848.0 0) scale(1 -1)"><path d="M680 0H80V810H680V646H268V500H644V340H268V164H680Z" fill="#fbf3e8"/></g><g transform="translate(2612.0 0) scale(1 -1)"><path d="M860 0H661L264 530H260V0H80V810H271L676 265H680V810H860Z" fill="#fbf3e8"/></g><g transform="translate(3586.0 0) scale(1 -1)"><path d="M462 0H278V646H24V810H716V646H462Z" fill="#fbf3e8"/></g><g transform="translate(4756.0 0) scale(1 -1)"><path d="M80 0V810H333L559 266H563L788 810H1040V0H852V538H848L635 0H473L260 538H256V0Z" fill="#fbf3e8"/></g><g transform="translate(5910.0 0) scale(1 -1)"><path d="M6 0 347 810H537L874 0H681L604 184H271L193 0ZM330 340H554L445 608H440Z" fill="#fbf3e8"/><path d="M78 372 L804 372 L804 184 Q731.4 60 658.8 184 Q586.2 60 513.6 184 Q441.0 60 368.4 184 Q295.8 60 223.2 184 Q150.6 60 78.0 184 L78 372 Z" fill="#e58a4e"/></g><g transform="translate(6824.0 0) scale(1 -1)"><path d="M80 0V810H510Q641 810 715.5 751.0Q790 692 790 590Q790 522 757.5 475.5Q725 429 669 412V408Q727 408 758.5 376.5Q790 345 790 282V0H602V300H268V0ZM268 464H498Q550 464 578.0 488.0Q606 512 606 555Q606 599 578.0 622.5Q550 646 498 646H268Z" fill="#fbf3e8"/></g><g transform="translate(7718.0 0) scale(1 -1)"><path d="M80 0V810H268V498H272L600 810H830L482 483L836 0H614L350 366L268 300V0Z" fill="#fbf3e8"/></g><g transform="translate(8592.0 0) scale(1 -1)"><path d="M680 0H80V810H680V646H268V500H644V340H268V164H680Z" fill="#fbf3e8"/></g><g transform="translate(9356.0 0) scale(1 -1)"><path d="M462 0H278V646H24V810H716V646H462Z" fill="#fbf3e8"/></g></svg></span></a>
+  <nav class="links">
+    <a class="link" href="https://agentmarket.exchange#mint">Mint</a>
+    <a class="link" href="https://presale.agentmarket.exchange">Presale</a>
+    <a class="link" href="https://claim.agentmarket.exchange">Claim</a>
+    <a class="link" href="https://agentmarket.exchange#swap">Swap</a>
+    <a class="link" href="about.html">About</a>
+  </nav>
+</header>
+
+<main class="dp" id="top">
+  <div class="doc">
+    <span class="kicker">Whitepaper · Version 1.0</span>
+    <h1>Rules of the <em>market</em>, written in code.</h1>
+    <p class="updated">agentmarket.exchange · November 2026</p>
+
+    <h2>1. Introduction</h2>
+    <p>Agent Market is a night market on BNB Chain built for Binance Agentic Wallet agents. It combines a collectible NFT, the Stall, with a fixed supply token, $AMKT, distributed through a public presale and through claims reserved for Stall holders. Every rule of the market, who can mint, what a mint costs, how the presale converts, and what a holder can claim, is enforced by four public smart contracts. This paper describes those rules exactly as the contracts enforce them.</p>
+
+    <h2>2. Design principles</h2>
+    <p><strong>Agent first.</strong> A Binance Agent ID (.ai) is the market pass. It is read from the public SPACE ID registry, and it sets the price of a wallet's first Stall.</p>
+    <p><strong>On chain rules.</strong> Prices, caps, and claim amounts live in the contracts, not on this website. Any interface, this site, an agent, or a block explorer, reads the same numbers.</p>
+    <p><strong>No held funds.</strong> Mint payments, claim fees, and presale proceeds move to the project wallet inside the same transaction that creates them. No contract in the market keeps a spendable BNB balance.</p>
+    <p><strong>Public by default.</strong> Contract source code is published and matched on Sourcify for all four contracts, and every address is printed in the footer of every page.</p>
+
+    <h2>3. The Stall NFT</h2>
+    <p>The Stall is a transferable NFT on BNB Chain with a fixed edition of <strong>12,000</strong>. Minting is open to any wallet, in the browser or through an agent, up to <strong>25 Stalls per wallet</strong>. Prices are computed on chain by the contract and rise by tier:</p>
+    <div class="kv">
+      <div><span>Stall 1, Agent ID holders</span><b>0 BNB</b></div>
+      <div><span>Stall 1, other wallets</span><b>0.0003 BNB</b></div>
+      <div><span>Stalls 2 to 10</span><b>0.0003 BNB each</b></div>
+      <div><span>Stalls 11 to 20</span><b>0.0005 BNB each</b></div>
+      <div><span>Stalls 21 to 25</span><b>0.0007 BNB each</b></div>
+      <div><span>Edition</span><b>12,000</b></div>
+    </div>
+    <p>The free first mint is not a discount code. The contract checks the minting wallet against the Agent ID registry at mint time: hold an Agent ID and the first Stall costs 0 BNB, hold none and it costs 0.0003 BNB.</p>
+
+    <h2>4. The $AMKT token</h2>
+    <p>$AMKT is a fixed supply token. <strong>10,000,000,000 $AMKT</strong> were created at deployment and no function can create more. The supply is allocated as follows:</p>
+    <div class="kv">
+      <div><span>Public presale</span><b>1,000,000,000 · 10%</b></div>
+      <div><span>Early holder claim pool</span><b>300,000,000 · 3%</b></div>
+      <div><span>Presale end holder claim pool</span><b>300,000,000 · 3%</b></div>
+      <div><span>Liquidity and market operations</span><b>7,100,000,000 · 71%</b></div>
+      <div><span>Legacy presale contract, locked</span><b>1,300,000,000 · 13%</b></div>
+    </div>
+    <p>A note on the locked line: the first presale contract was replaced before the market opened. The $AMKT it holds cannot be withdrawn by anyone, including the project, and never circulates. The balance is public on chain for anyone to confirm.</p>
+
+    <h2>5. Presale mechanics</h2>
+    <p>The presale sells at most <strong>1,000,000,000 $AMKT</strong> at a fixed rate of <strong>20,000,000 $AMKT per 1 BNB</strong>. It runs for exactly 14 days from its on chain start. Buyers pay in BNB, or in USDT converted at the BNB price reported by the Chainlink BNB/USD feed on BNB Chain. Purchases are recorded by the presale contract at purchase time. Purchased $AMKT is not transferred during the sale: buyers claim it after the presale ends, from the same contract, in one claim per wallet.</p>
+
+    <h2>6. Holder claims</h2>
+    <p>Every Stall carries <strong>25,000 $AMKT</strong> of claim value, and the market runs the holder claim twice, so a Stall held through both rounds is worth <strong>50,000 $AMKT</strong> in total.</p>
+    <p><strong>Early holder claim, open now.</strong> The AgentMarketClaim contract pays 25,000 $AMKT for every Stall the claiming wallet holds at claim time, once per wallet, for a claim fee of 0.000241 BNB. The fee moves to the project wallet in the same transaction. A wallet that has claimed cannot claim again from this contract, even if it later receives more Stalls.</p>
+    <p><strong>Presale end holder claim.</strong> When the presale ends, the presale contract opens its own holder claim on the same terms, 25,000 $AMKT per Stall held, once per wallet, with no fee. It runs independently of the early claim.</p>
+
+    <h2>7. Money flow</h2>
+    <p>Follow one mint and one claim and the pattern is the same: value moves once, in the transaction itself. A mint payment reaches the project wallet in the mint transaction. A claim fee reaches the project wallet in the claim transaction. A presale purchase reaches the project wallet in the purchase transaction. Claim pools are the one deliberate exception: $AMKT reserved for holders sits in the claim contracts, where no one, including the project, can withdraw it. It can only leave as a holder claim.</p>
+
+    <h2>8. Swap and liquidity</h2>
+    <p>The main page carries a swap console routed through the PancakeSwap V2 router. BNB and USDT trade there today. No $AMKT pool exists yet: the pool is created after the presale ends, and the console reads the chain for it and enables $AMKT trading automatically once the pool exists. Prices in the console are quoted by the router at the moment of the quote, with the slippage the visitor selects.</p>
+
+    <h2>9. Holder launchpad</h2>
+    <p>Agent Market is also a launchpad in waiting. When the launchpad opens, Stall holders get access: the Stall is the ticket, and holding is verified on chain at the moment of entry. Launch terms for future sales will be published on this site before any of them open.</p>
+
+    <h2>10. Contracts</h2>
+    <p><strong>$AMKT (token)</strong><a class="addr" href="https://bscscan.com/address/0x31BBB7A5614D0eD465a93d1BAFCE28CE0225cDDe">0x31BBB7A5614D0eD465a93d1BAFCE28CE0225cDDe</a></p>
+    <p><strong>Stall (NFT)</strong><a class="addr" href="https://bscscan.com/address/0xE3dE7fD0d12cFF4a46d8Bf702Ab593B6f921b308">0xE3dE7fD0d12cFF4a46d8Bf702Ab593B6f921b308</a></p>
+    <p><strong>Presale and claim</strong><a class="addr" href="https://bscscan.com/address/0xA6Ef01e926eFbD35661e7B1d3E1CBeE360750b16">0xA6Ef01e926eFbD35661e7B1d3E1CBeE360750b16</a></p>
+    <p><strong>Claim</strong><a class="addr" href="https://bscscan.com/address/0xf40c9345D8EccA7B437c45e5DabADb0Ed8cdd209">0xf40c9345D8EccA7B437c45e5DabADb0Ed8cdd209</a></p>
+    <p><strong>Agent ID registry (SPACE ID)</strong><a class="addr" href="https://bscscan.com/address/0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F">0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F</a></p>
+
+    <h2>11. Risks</h2>
+    <p>$AMKT and the Stall are crypto assets. Their prices can move to zero, the presale claim opens only after the presale ends, and smart contracts can contain errors even when their source is public. Nothing in this paper is a promise of return. Read the <a href="disclaimer.html">Disclaimer</a> before you mint or buy, and the step by step <a href="docs.html">Docs</a> before your first transaction.</p>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <a class="brand" href="https://agentmarket.exchange"><svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M39.5 2.2 C40.1 4.9 41.6 6.4 44.3 7.5 C41.6 8.6 40.1 10.1 39.5 12.8 C38.9 10.1 37.4 8.6 34.7 7.5 C37.4 6.4 38.9 4.9 39.5 2.2 Z" fill="#f4a66e"/><path fill="#fbf3e8" d="M24 6 L45.5 44 L36.4 44 L24 19.4 L11.6 44 L2.5 44 Z"/><path fill="#e58a4e" d="M4.5 24.5 L43.5 24.5 L43.5 29 q-3.25 4.6 -6.5 0 q-3.25 4.6 -6.5 0 q-3.25 4.6 -6.5 0 q-3.25 4.6 -6.5 0 q-3.25 4.6 -6.5 0 q-3.25 4.6 -6.5 0 Z"/></svg><span class="brand-wordwrap"><svg class="brand-word" viewBox="-16 -852 10128 896" role="img" aria-label="Agent Market"><g transform="translate(0.0 0) scale(1 -1)"><path d="M6 0 347 810H537L874 0H681L604 184H271L193 0ZM330 340H554L445 608H440Z" fill="#fbf3e8"/><path d="M78 372 L804 372 L804 184 Q731.4 60 658.8 184 Q586.2 60 513.6 184 Q441.0 60 368.4 184 Q295.8 60 223.2 184 Q150.6 60 78.0 184 L78 372 Z" fill="#e58a4e"/></g><g transform="translate(914.0 0) scale(1 -1)"><path d="M443 -12Q325 -12 235.0 40.5Q145 93 94.5 187.0Q44 281 44 404Q44 530 96.0 624.0Q148 718 242.5 770.0Q337 822 462 822Q565 822 644.0 786.5Q723 751 773.0 685.0Q823 619 836 527H640Q630 588 583.0 622.0Q536 656 462 656Q392 656 340.0 625.0Q288 594 260.0 537.0Q232 480 232 402Q232 323 261.0 265.0Q290 207 343.0 175.5Q396 144 468 144Q521 144 562.5 160.5Q604 177 628.0 205.5Q652 234 652 270V294H453V438H704Q770 438 803.0 406.5Q836 375 836 312V0H664V86H659Q630 37 576.0 12.5Q522 -12 443 -12Z" fill="#fbf3e8"/></g><g transform="translate(1848.0 0) scale(1 -1)"><path d="M680 0H80V810H680V646H268V500H644V340H268V164H680Z" fill="#fbf3e8"/></g><g transform="translate(2612.0 0) scale(1 -1)"><path d="M860 0H661L264 530H260V0H80V810H271L676 265H680V810H860Z" fill="#fbf3e8"/></g><g transform="translate(3586.0 0) scale(1 -1)"><path d="M462 0H278V646H24V810H716V646H462Z" fill="#fbf3e8"/></g><g transform="translate(4756.0 0) scale(1 -1)"><path d="M80 0V810H333L559 266H563L788 810H1040V0H852V538H848L635 0H473L260 538H256V0Z" fill="#fbf3e8"/></g><g transform="translate(5910.0 0) scale(1 -1)"><path d="M6 0 347 810H537L874 0H681L604 184H271L193 0ZM330 340H554L445 608H440Z" fill="#fbf3e8"/><path d="M78 372 L804 372 L804 184 Q731.4 60 658.8 184 Q586.2 60 513.6 184 Q441.0 60 368.4 184 Q295.8 60 223.2 184 Q150.6 60 78.0 184 L78 372 Z" fill="#e58a4e"/></g><g transform="translate(6824.0 0) scale(1 -1)"><path d="M80 0V810H510Q641 810 715.5 751.0Q790 692 790 590Q790 522 757.5 475.5Q725 429 669 412V408Q727 408 758.5 376.5Q790 345 790 282V0H602V300H268V0ZM268 464H498Q550 464 578.0 488.0Q606 512 606 555Q606 599 578.0 622.5Q550 646 498 646H268Z" fill="#fbf3e8"/></g><g transform="translate(7718.0 0) scale(1 -1)"><path d="M80 0V810H268V498H272L600 810H830L482 483L836 0H614L350 366L268 300V0Z" fill="#fbf3e8"/></g><g transform="translate(8592.0 0) scale(1 -1)"><path d="M680 0H80V810H680V646H268V500H644V340H268V164H680Z" fill="#fbf3e8"/></g><g transform="translate(9356.0 0) scale(1 -1)"><path d="M462 0H278V646H24V810H716V646H462Z" fill="#fbf3e8"/></g></svg></span></a>
+      <p>A night market for Binance Agentic Wallet agents, on BNB Chain. Mint on this page with your wallet, or through your agent.</p>
+    </div>
+    <nav class="foot-col" aria-label="Project">
+      <h4>Project</h4>
+      <a href="https://agentmarket.exchange/about.html">About</a>
+      <a href="https://agentmarket.exchange/whitepaper.html">Whitepaper</a>
+      <a href="https://agentmarket.exchange/docs.html">Docs</a>
+      <a href="https://agentmarket.exchange#mint">Mint</a>
+      <a href="https://presale.agentmarket.exchange">Presale</a>
+      <a href="https://claim.agentmarket.exchange">Claim</a>
+      <a href="https://agentmarket.exchange#swap">Swap</a>
+    </nav>
+    <nav class="foot-col" aria-label="Legal">
+      <h4>Legal</h4>
+      <a href="https://agentmarket.exchange/terms.html">Terms of Use</a>
+      <a href="https://agentmarket.exchange/privacy.html">Privacy Policy</a>
+      <a href="https://agentmarket.exchange/disclaimer.html">Disclaimer</a>
+    </nav>
+    <div class="foot-col">
+      <h4>Contracts</h4>
+      <a class="fc" href="https://bscscan.com/address/0x31BBB7A5614D0eD465a93d1BAFCE28CE0225cDDe"><b>$AMKT (token)</b><span>0x31BBB7A5614D0eD465a93d1BAFCE28CE0225cDDe</span></a>
+      <a class="fc" href="https://bscscan.com/address/0xE3dE7fD0d12cFF4a46d8Bf702Ab593B6f921b308"><b>Stall (NFT)</b><span>0xE3dE7fD0d12cFF4a46d8Bf702Ab593B6f921b308</span></a>
+      <a class="fc" href="https://bscscan.com/address/0xA6Ef01e926eFbD35661e7B1d3E1CBeE360750b16"><b>Presale and claim</b><span>0xA6Ef01e926eFbD35661e7B1d3E1CBeE360750b16</span></a>
+      <a class="fc" href="https://bscscan.com/address/0xf40c9345D8EccA7B437c45e5DabADb0Ed8cdd209"><b>Claim</b><span>0xf40c9345D8EccA7B437c45e5DabADb0Ed8cdd209</span></a>
+    </div>
+  </div>
+  <div class="foot-base"><span>© 2026 Agent Market · Built for Binance Agentic Wallet agents</span><span>BNB Chain · Chain ID 56</span></div>
+</footer>
+
+</body>
+</html>
