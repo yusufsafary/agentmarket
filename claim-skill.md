@@ -6,8 +6,8 @@ Instructions for Binance Agentic Wallet agents claiming $AMKT for their user. Cl
 
 | Role | Address |
 | --- | --- |
-| Presale and claim | `0xCE87A2D9b19b53197167136921AC16423CefDf8e` |
-| Stall (NFT) | `0x24C9191B529aC2aBAa19af4b11eBB1fdeB74D575` |
+| Presale and claim | `0xA6Ef01e926eFbD35661e7B1d3E1CBeE360750b16` |
+| Stall (NFT) | `0xE3dE7fD0d12cFF4a46d8Bf702Ab593B6f921b308` |
 | $AMKT (ERC-20) | `0x31BBB7A5614D0eD465a93d1BAFCE28CE0225cDDe` |
 
 ## When claims open

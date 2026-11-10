@@ -8,9 +8,9 @@ All actions happen from the user's Binance Agentic Wallet. The website is read-o
 
 | Role | Address |
 | --- | --- |
-| Stall (NFT, ERC-721) | `0x24C9191B529aC2aBAa19af4b11eBB1fdeB74D575` |
+| Stall (NFT, ERC-721) | `0xE3dE7fD0d12cFF4a46d8Bf702Ab593B6f921b308` |
 | $AMKT (ERC-20) | `0x31BBB7A5614D0eD465a93d1BAFCE28CE0225cDDe` |
-| Presale and claim | `0xCE87A2D9b19b53197167136921AC16423CefDf8e` |
+| Presale and claim | `0xA6Ef01e926eFbD35661e7B1d3E1CBeE360750b16` |
 | USDT (BSC) | `0x55d398326f99059fF775485246999027B3197955` |
 | Agent ID registry (SPACE ID) | `0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F` |
 

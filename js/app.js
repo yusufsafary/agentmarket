@@ -5,8 +5,8 @@ const RPCS = [
   "https://bsc-dataseed.binance.org",
   "https://bsc-dataseed1.binance.org",
 ];
-const STALL = "0x24C9191B529aC2aBAa19af4b11eBB1fdeB74D575";
-const PRESALE = "0xCE87A2D9b19b53197167136921AC16423CefDf8e";
+const STALL = "0xE3dE7fD0d12cFF4a46d8Bf702Ab593B6f921b308";
+const PRESALE = "0xA6Ef01e926eFbD35661e7B1d3E1CBeE360750b16";
 const MAX_SUPPLY = 12000n;
 
 async function ethCall(to, data) {
