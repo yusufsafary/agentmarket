@@ -10,7 +10,7 @@
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Gentle pointer tilt on the frame (desktop, fine pointers only).
-  var frame = stage.closest ? stage.closest(".art-frame") : null;
+  var frame = stage.closest ? stage.closest(".specimen") : null;
   if (!reduce && frame && window.matchMedia && window.matchMedia("(pointer: fine)").matches) {
     var tiltRaf = null;
     stage.addEventListener("mousemove", function (e) {
@@ -35,9 +35,9 @@
   sprite.width = sprite.height = 64;
   var sctx = sprite.getContext("2d");
   var grad = sctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-  grad.addColorStop(0, "rgba(255, 240, 190, 1)");
-  grad.addColorStop(0.35, "rgba(242, 194, 48, 0.55)");
-  grad.addColorStop(1, "rgba(232, 169, 12, 0)");
+  grad.addColorStop(0, "rgba(255, 238, 205, 1)");
+  grad.addColorStop(0.35, "rgba(244, 166, 110, 0.55)");
+  grad.addColorStop(1, "rgba(201, 109, 52, 0)");
   sctx.fillStyle = grad;
   sctx.fillRect(0, 0, 64, 64);
 
