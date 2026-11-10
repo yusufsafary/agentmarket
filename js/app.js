@@ -5,6 +5,7 @@ const { ethCall, asUint, asBool, padAddr, u256, fmt, fmtBNB, toast, friendlyErro
 
 const STALL = "0xE3dE7fD0d12cFF4a46d8Bf702Ab593B6f921b308";
 const PRESALE = "0xA6Ef01e926eFbD35661e7B1d3E1CBeE360750b16";
+const CLAIM = "0xf40c9345D8EccA7B437c45e5DabADb0Ed8cdd209";
 const REGISTRY = "0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F";
 const SUPPLY = 12000;
 const MAXW = 25;
@@ -100,6 +101,30 @@ async function refreshBoard() {
     }
   } catch (e) { /* keep last values */ }
   renderWidget();
+}
+
+// ---- Live claim ledger ------------------------------------------------------
+// Reads totalClaims() and poolBalance() from the AgentMarketClaim contract
+// through the same raced public RPCs as the mint board. On any failure the
+// last shown values stay on screen; nothing is ever replaced with a fake 0.
+const CLAIM_SEL = { totalClaims: "0x41c61383", poolBalance: "0x96365d44", claimPool: "0xeea9aef7" };
+const CLAIM_POOL_FALLBACK = 300000000n * 10n ** 18n;
+let claimPoolTotal = 0n;
+async function refreshClaims() {
+  try {
+    if (!claimPoolTotal) {
+      claimPoolTotal = await ethCall(CLAIM, CLAIM_SEL.claimPool).then(asUint).catch(() => 0n);
+      if (!claimPoolTotal) claimPoolTotal = CLAIM_POOL_FALLBACK;
+    }
+    const [total, pool] = await Promise.all([
+      ethCall(CLAIM, CLAIM_SEL.totalClaims).then(asUint),
+      ethCall(CLAIM, CLAIM_SEL.poolBalance).then(asUint),
+    ]);
+    const claimed = claimPoolTotal > pool ? claimPoolTotal - pool : 0n;
+    setNum("cl-total", Number(total), fmt(total));
+    setNum("cl-claimed", Number(claimed / 10n ** 18n), fmt(claimed / 10n ** 18n));
+    setNum("cl-pool", Number(pool / 10n ** 18n), fmt(pool / 10n ** 18n));
+  } catch (e) { /* keep last values */ }
 }
 
 async function refreshOwned() {
@@ -366,5 +391,9 @@ document.querySelectorAll(".copy-btn[data-copy]").forEach((btn) => {
 window.AMW.mountButton($("wallet-slot"));
 renderWidget();
 refreshBoard();
+refreshClaims();
 setInterval(() => { if (!document.hidden) { refreshBoard(); refreshOwned(); } }, 20000);
+setInterval(() => { if (!document.hidden) refreshClaims(); }, 30000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) refreshClaims(); });
+window.addEventListener("focus", refreshClaims);
 setInterval(tickCountdown, 1000);

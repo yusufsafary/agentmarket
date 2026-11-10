@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=12">
+<link rel="stylesheet" href="css/style.css?v=13">
 <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 </head>
 <body>
@@ -218,6 +218,14 @@ Steps:
       <h2>Every Stall carries tokens.</h2>
       <p>The holder claim is open now. Stall holders claim <b>25,000 AMKT per Stall</b> on the claim page through the AgentMarketClaim contract, counted from the Stalls in the wallet at claim time, once per wallet, for a claim fee of 0.000241 BNB. A wallet holding the maximum 25 Stalls claims 625,000 AMKT. Presale buyers claim the AMKT they bought after the presale ends on 24 November at 11:30 UTC. Claim with your wallet on the claim page, or through your Binance Agentic Wallet agent.</p>
     </div>
+    <div class="claim-live">
+      <div class="cl-head"><span class="live-dot" aria-hidden="true"></span><span>Live · Claim ledger</span><small>Read straight from the AgentMarketClaim contract</small></div>
+      <div class="facts-band three cl-band">
+        <div><i>Total claims</i><b class="num" id="cl-total">···</b></div>
+        <div><i>$AMKT claimed</i><b class="num" id="cl-claimed">···</b></div>
+        <div><i>Pool remaining</i><b class="num" id="cl-pool">···</b></div>
+      </div>
+    </div>
     <a class="tagbtn" href="https://claim.agentmarket.exchange">Open the claim page <span class="arr">→</span></a>
   </section>
 
@@ -335,7 +343,7 @@ Steps:
 </div>
 
 <script src="js/wallet.js?v=1"></script>
-<script src="js/app.js?v=12"></script>
+<script src="js/app.js?v=13"></script>
 <script src="js/swap.js?v=1"></script>
 <script src="js/fx.js?v=7"></script>
 <script src="js/smooth.js?v=1"></script>
