@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=8">
+<link rel="stylesheet" href="css/style.css?v=9">
 <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 </head>
 <body>
@@ -20,6 +20,7 @@
     <a class="link" href="#mint" aria-current="page">Mint</a>
     <a class="link" href="https://presale.agentmarket.exchange">Presale</a>
     <a class="link" href="https://claim.agentmarket.exchange">Claim</a>
+    <a class="link" href="#swap">Swap</a>
     <a class="link" href="#faq">FAQ</a>
   </nav>
   <div class="right"><div class="slot" id="wallet-slot"></div></div>
@@ -220,6 +221,46 @@ Steps:
     <a class="tagbtn" href="https://claim.agentmarket.exchange">Open the claim page <span class="arr">→</span></a>
   </section>
 
+  <section class="sec" id="swap">
+    <div class="sec-h">
+      <span class="kicker">Swap · PancakeSwap V2</span>
+      <h2>Trade at the <em>market</em>.</h2>
+      <p>Swap BNB and USDT right here, routed through PancakeSwap V2 with the quote read live from the pools. $AMKT joins the swap the moment its liquidity pool is created after the presale ends, with no update needed on this page.</p>
+    </div>
+    <div class="console sw-console">
+      <div class="sw-field">
+        <div class="f-top"><span>You pay</span><span>Balance: <b id="swBalIn">···</b> <button class="sw-max" id="swMax" type="button">Max</button></span></div>
+        <div class="f-row">
+          <input id="swIn" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="0.0" aria-label="Amount to swap">
+          <div class="tok-wrap">
+            <button class="f-coin" id="swTokIn" type="button" aria-haspopup="true" aria-expanded="false"></button>
+            <div class="tok-menu" id="swMenuIn" hidden></div>
+          </div>
+        </div>
+      </div>
+      <button class="arrow-paw" id="swFlip" type="button" aria-label="Flip swap direction"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><path d="M12 4v13m0 0 5-5m-5 5-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 21h.01" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button>
+      <div class="sw-field out">
+        <div class="f-top"><span>You receive</span><span>Balance: <b id="swBalOut">···</b></span></div>
+        <div class="f-row">
+          <output id="swOut">0.0</output>
+          <div class="tok-wrap">
+            <button class="f-coin" id="swTokOut" type="button" aria-haspopup="true" aria-expanded="false"></button>
+            <div class="tok-menu" id="swMenuOut" hidden></div>
+          </div>
+        </div>
+      </div>
+      <div class="sw-pool" id="swPoolNote" hidden><b>$AMKT is not trading yet.</b> AMKT trading opens when the liquidity pool is created after the presale ends. Until then, swaps between BNB and USDT work as usual.</div>
+      <div class="sw-meta" id="swMeta" hidden>
+        <p class="sw-rate" id="swRate"></p>
+        <div class="sw-line"><span>Minimum received</span><b id="swMin">···</b></div>
+        <div class="sw-line"><span>Price impact</span><b id="swImpact">···</b></div>
+        <div class="sw-line"><span>Slippage tolerance</span><span class="sw-slip" id="swSlip"><button type="button" data-slip="50">0.5%</button><button type="button" data-slip="100" aria-pressed="true">1%</button><button type="button" data-slip="300">3%</button></span></div>
+      </div>
+      <button class="go-btn sw-go" id="swBtn" type="button">Connect wallet</button>
+      <p class="txline" id="swTx" hidden></p>
+    </div>
+  </section>
+
   <section class="dp-faq" id="faq">
     <div class="sec-h">
       <span class="kicker">05 · Questions</span>
@@ -284,6 +325,7 @@ Steps:
 
 <script src="js/wallet.js?v=1"></script>
 <script src="js/app.js?v=5"></script>
+<script src="js/swap.js?v=1"></script>
 <script src="js/fx.js?v=7"></script>
 </body>
 </html>
