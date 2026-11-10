@@ -622,8 +622,8 @@ b, strong { font-weight: 700; }
 .tok-ic.t-usdt { background: var(--good); color: #fff; }
 .tok-ic.t-amkt { background: var(--orange-2); color: var(--ink); }
 .tok-ic-img { flex: none; width: 30px; height: 30px; border-radius: 50%; display: block; }
-.coin-ic { width: 22px; height: 22px; border-radius: 50%; vertical-align: -5px; margin-right: 6px; }
-.coin-ic-s { width: 16px; height: 16px; border-radius: 50%; vertical-align: -3px; margin-right: 5px; }
+.coin-ic { display: inline-block; width: 22px; height: 22px; border-radius: 50%; vertical-align: -5px; margin-right: 6px; }
+.coin-ic-s { display: inline-block; width: 16px; height: 16px; border-radius: 50%; vertical-align: -3px; margin-right: 5px; }
 .st-p { display: inline-flex; align-items: center; }
 .st-p .coin-ic { vertical-align: middle; }
 .tok-menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 40; min-width: 210px; background: var(--cream); border: 1px solid var(--line); border-radius: 16px; padding: 6px; box-shadow: 0 24px 44px -20px rgba(80, 40, 15, .45); display: grid; gap: 2px; }
@@ -722,3 +722,23 @@ b, strong { font-weight: 700; }
   html { scroll-behavior: auto; }
   .rv { opacity: 1; transform: none; transition: none; }
 }
+
+/* ---------- Tidiness pass: aligned labels, prices, cards ---------- */
+.sp-foot b { white-space: nowrap; }
+.sp-foot .coin-ic-s { width: 13px; height: 13px; vertical-align: -2px; margin-right: 4px; }
+.bowl-cap i { min-height: 27px; }
+.prompt-box pre { padding-top: 50px; }
+@media (max-width: 720px) {
+  .sp-foot { font-size: 12.5px; padding: 14px 4px 16px; }
+  .facts-band i { font-size: 10px; letter-spacing: .08em; white-space: nowrap; }
+  .facts-band > div { padding: 20px 16px; }
+  .facts-band.five > div:nth-child(5) { grid-column: 1 / -1; }
+  .steps-l li { align-items: start; }
+  .steps-l .st-p { padding-top: 3px; }
+  .perk h3 { margin-top: 14px; }
+  .bowl-cap i { min-height: 0; }
+  .bowl-cap > div { flex: 1 1 40%; }
+}
+
+.sp-foot b { font-weight: 600; }
+@media (max-width: 720px) { .facts-band.three > div:nth-child(3) { grid-column: 1 / -1; } }
