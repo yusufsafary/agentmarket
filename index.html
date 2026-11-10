@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Market · Mint a Stall, claim $AMKT</title>
+<meta name="description" content="Agent Market is a night market for Binance Agentic Wallet agents. Mint a Stall, join the $AMKT presale, and claim 25,000 AMKT per Stall after the presale ends.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=1">
+<link rel="icon" href="img/stall.jpg">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#top">AGENT MARKET</a>
+  <nav>
+    <a href="#mint">Mint</a>
+    <a href="#presale">Presale</a>
+    <a href="#claim">Claim</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="kicker">A NIGHT MARKET FOR AGENTS · BNB CHAIN</p>
+    <h1>Every agent<br>deserves a <em>Stall</em>.</h1>
+    <p class="lede">Agent Market is a night market built for Binance Agentic Wallet agents. Your agent mints a Stall, joins the $AMKT presale, and after the presale ends every Stall claims 25,000 $AMKT. First mint is free for Agentic wallets holding an Agent ID (.ai).</p>
+    <div class="hero-cta">
+      <a class="btn" href="#mint">Mint via your agent</a>
+      <a class="btn alt" href="https://claim.agentmarket.exchange">Claim $AMKT</a>
+    </div>
+    <img class="hero-art" src="img/stall.jpg" alt="A glowing market stall at night">
+  </section>
+
+  <section class="board" aria-label="Live board">
+    <div class="stat"><span class="stat-num" id="st-minted">···</span><span class="stat-lab">Stalls minted</span></div>
+    <div class="stat"><span class="stat-num" id="st-left">···</span><span class="stat-lab">Stalls remaining</span></div>
+    <div class="stat"><span class="stat-num" id="st-mint-status">···</span><span class="stat-lab">Mint status</span></div>
+    <div class="stat"><span class="stat-num" id="st-presale">···</span><span class="stat-lab">Presale status</span></div>
+    <div class="stat wide"><span class="stat-num" id="st-countdown">···</span><span class="stat-lab">Presale countdown</span></div>
+  </section>
+
+  <section id="mint" class="panel">
+    <p class="kicker">01 · MINT A STALL</p>
+    <h2>One wallet, up to 25 Stalls.</h2>
+    <p>Stalls are minted only through your Binance Agentic Wallet agent. There is no wallet connection and no mint button on this page. Give your agent the prompt below and it reads the live price from the contract, pays the exact amount, and mints to your Agentic wallet.</p>
+    <table class="tiers">
+      <thead><tr><th>Mint number</th><th>Price per Stall</th></tr></thead>
+      <tbody>
+        <tr><td>First mint</td><td><strong>Free</strong> for .ai Agent ID wallets · 0.0003 BNB for other wallets</td></tr>
+        <tr><td>Mints 2 to 10</td><td>0.0003 BNB</td></tr>
+        <tr><td>Mints 11 to 20</td><td>0.0005 BNB</td></tr>
+        <tr><td>Mints 21 to 25</td><td>0.0007 BNB</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Supply is 12,000 Stalls. A batch that crosses a tier pays the combined price of each tier it crosses. Prices are read on chain by costFor before every mint, so your agent always pays the exact amount.</p>
+    <h3>Agent prompt · mint</h3>
+    <div class="prompt-box">
+      <pre id="mint-prompt">You are my Binance Agentic Wallet agent. Mint Agent Market Stalls for me on BNB Chain (chain ID 56).
+
+Stall contract: 0x24C9191B529aC2aBAa19af4b11eBB1fdeB74D575
+
+Steps:
+1. Read mintOpen() (selector 0x24bbd049). If it returns false, stop and tell me minting is not open yet.
+2. Read mintedBy(my wallet) (selector 0x3cef28d2) and costFor(my wallet, quantity) (selector 0xf31cc4e6) for the quantity I asked for.
+3. Call mint(quantity) (selector 0xa0712d68) with value exactly equal to costFor. My first mint is free (0 BNB) if my wallet holds an Agent ID (.ai); otherwise the first mint costs 0.0003 BNB. Mints 2 to 10 cost 0.0003 BNB each, 11 to 20 cost 0.0005 BNB each, 21 to 25 cost 0.0007 BNB each. Maximum 25 Stalls per wallet.
+4. Show me the transaction and confirm the Stalls arrived in my wallet.</pre>
+      <button class="copy-btn" data-copy="mint-prompt">Copy prompt</button>
+    </div>
+  </section>
+
+  <section id="presale" class="panel">
+    <p class="kicker">02 · $AMKT PRESALE</p>
+    <h2>One rate. Two ways to pay.</h2>
+    <p>The presale sells $AMKT at a fixed rate of <strong>1 BNB = 20,000,000 AMKT</strong>. Your agent can pay with BNB, or with USDT converted at the live Chainlink BNB/USD price. The presale hardcap is 1,000,000,000 AMKT (50 BNB equivalent) and it runs for 14 days from the moment it starts.</p>
+    <div class="cards">
+      <div class="card"><span class="card-num" id="st-sold">···</span><span class="card-lab">AMKT sold in presale</span></div>
+      <div class="card"><span class="card-num">1,000,000,000</span><span class="card-lab">Presale hardcap in AMKT</span></div>
+      <div class="card"><span class="card-num">10,000,000,000</span><span class="card-lab">Total $AMKT supply</span></div>
+    </div>
+    <h3>Agent prompt · presale</h3>
+    <div class="prompt-box">
+      <pre id="presale-prompt">You are my Binance Agentic Wallet agent. Buy $AMKT in the Agent Market presale on BNB Chain (chain ID 56).
+
+Presale contract: 0xCE87A2D9b19b53197167136921AC16423CefDf8e
+
+Steps:
+1. Read isOpen() (selector 0x47535d7b). If it returns false, stop and tell me the presale is not open.
+2. To pay with BNB: call buyWithBNB() (selector 0x20f1fc61) with the BNB amount I gave you as the value. Rate: 1 BNB = 20,000,000 AMKT.
+3. To pay with USDT: first approve the presale contract to spend my USDT (USDT contract 0x55d398326f99059fF775485246999027B3197955, approve selector 0x095ea7b3), then call buyWithUSDT(usdtAmount) (selector 0xa7c60160). The contract converts USDT at the Chainlink BNB/USD price.
+4. Read bought(my wallet) (selector 0x667022fd) and tell me how much AMKT I will be able to claim after the presale ends.</pre>
+      <button class="copy-btn" data-copy="presale-prompt">Copy prompt</button>
+    </div>
+  </section>
+
+  <section id="claim" class="panel">
+    <p class="kicker">03 · CLAIM</p>
+    <h2>Every Stall carries tokens.</h2>
+    <p>When the presale ends, two claims open on the claim page, both free of any fee and both handled by your Binance Agentic Wallet agent. Presale buyers claim the AMKT they bought. Stall holders claim <strong>25,000 AMKT per Stall</strong>, counted from the Stalls in the wallet at claim time. A wallet holding the maximum 25 Stalls claims 625,000 AMKT.</p>
+    <a class="btn" href="https://claim.agentmarket.exchange">Open the claim page</a>
+  </section>
+
+  <section id="faq" class="panel">
+    <p class="kicker">04 · QUESTIONS</p>
+    <h2>Asked at the market.</h2>
+    <details><summary>How do I mint a Stall?</summary><p>Through your Binance Agentic Wallet agent. Copy the mint prompt above, send it to your agent, and name the quantity. This site never connects to your wallet and never takes payment.</p></details>
+    <details><summary>Why is the first mint free?</summary><p>Agentic wallets that hold a Binance Agent ID (.ai) mint their first Stall for 0 BNB. The contract reads the Agent ID registry on chain. Wallets without an Agent ID pay 0.0003 BNB from the first mint.</p></details>
+    <details><summary>When does the presale start and end?</summary><p>The start is announced here and on the project channels. Once started, the presale runs exactly 14 days and the live board above counts down to the on-chain end time.</p></details>
+    <details><summary>When can I claim $AMKT?</summary><p>Claims open the moment the presale ends. Presale purchases and Stall holder allocations are claimed separately, once each per wallet, with no claim fee.</p></details>
+    <details><summary>What does a Stall get me besides the claim?</summary><p>Stall holders get access to the Agent Market launchpad when it opens. The Stall itself is a transferable NFT on BNB Chain.</p></details>
+  </section>
+
+  <footer>
+    <p class="foot-title">AGENT MARKET · CONTRACTS</p>
+    <p>Stall (NFT) · 0x24C9191B529aC2aBAa19af4b11eBB1fdeB74D575</p>
+    <p>$AMKT (token) · 0x31BBB7A5614D0eD465a93d1BAFCE28CE0225cDDe</p>
+    <p>Presale and claim · 0xCE87A2D9b19b53197167136921AC16423CefDf8e</p>
+    <p class="foot-note">Mint and presale run through Binance Agentic Wallet agents. agentmarket.exchange</p>
+  </footer>
+</main>
+<script src="js/app.js?v=1"></script>
+</body>
+</html>
